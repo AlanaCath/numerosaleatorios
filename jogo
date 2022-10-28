@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device width, inical scale=1">
+    <link rel="stylesheet" href="">
+    <title>Jogo em Js</title>
+</head>   
+<body onload="sortear()">
+    <h1>Tente adivinhar meu número</h1>
+    <button onclick="jogar()" id="botao">Tentar adivinhar</button>
+    <section id="result">
+        <p>Já pensei em um valor entre 1 e 100...</p>
+    </section>
+<style>
+    body {background-color: rgb(82, 60, 104);
+    color: white;
+    text-align: center;
+    margin-top: 2%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+    h1 {border: 30%; background-color: rgba(61, 47, 75, 0.671);}
+
+</style>
+    <script>
+        var res =  document.querySelector(`section#result`)
+        var computador = 0
+        var jogador = 0
+    function sortear() {
+        var min = 1
+        var max = 100
+        var dif = max - min
+        var aleatorio = Math.random()
+        computador = min + Math.trunc (dif = aleatorio)
+    }
+
+    function jogar() {
+        jogador = Number (window.prompt(`Qual é o seu palpite?`))
+        if (jogador < computador) {
+            res.innerHTML += `<p>Você falou ${jogador}. Meu número é <strong>MAIOR</strong>!</p>`
+        } else if (jogador > computador) {
+            res.innerHTML += `<p>Você falou ${jogador}. Meu número é <strong>MENOR</strong>!</p>`
+        } else if (jogador == computador) {
+            res.innerHTML += `<p><strong>PARABÉNS!</strong> Você acertou! Eu tinha sorteado o valor ${computador}! </p>`
+            document.getElementById(`botao`)
+        }
+    }
+    </script>
+    <section>
+        <img src="numero.png">
+    </section>
+
+</body>
+</html>
